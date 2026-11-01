@@ -1,0 +1,10 @@
+2026-11-01 16:54:53,381 [INFO] Created default configuration file: config.json
+2026-11-01 16:54:53,382 [INFO] Checking Google Sheet for updates...
+2026-11-01 16:54:56,730 [INFO] Update detected! (Hash changed: None -> 7defd312c536f5ffc2f9bfbfd832f2b2)
+2026-11-01 16:54:58,170 [WARNING] Telegram Bot Token or Chat ID not configured. Updated image generated locally.
+2026-11-01 16:55:44,734 [INFO] Checking Google Sheet for updates...
+2026-11-01 16:55:47,705 [INFO] Update detected! (Hash changed: 7defd312c536f5ffc2f9bfbfd832f2b2 -> 7defd312c536f5ffc2f9bfbfd832f2b2)
+2026-11-01 16:55:52,407 [WARNING] Telegram Bot Token or Chat ID not configured. Updated image generated locally.
+2026-11-01 16:57:19,266 [INFO] Checking Google Sheet for updates...
+2026-11-01 16:57:21,590 [INFO] Update detected! (Hash changed: 7defd312c536f5ffc2f9bfbfd832f2b2 -> 7defd312c536f5ffc2f9bfbfd832f2b2)
+2026-11-01 16:57:23,284 [WARNING] Telegram Bot Token or Chat ID not configured. Updated image generated locally.
