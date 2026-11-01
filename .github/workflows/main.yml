@@ -1,0 +1,43 @@
+name: Hourly Telecom Sheet Monitor
+
+on:
+  schedule:
+    # Runs every hour at minute 0
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies & Fonts
+        run: |
+          sudo apt-get update && sudo apt-get install -y fonts-dejavu-core
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Sheet Monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python monitor.py --once
+
+      - name: Commit and Push Updated Hash and Image
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add last_hash.txt pivot_table.png
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update: Pivot table and data hash [skip ci]" && git push)
